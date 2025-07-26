@@ -2,6 +2,7 @@ import { Toaster } from '@/components/ui/sonner';
 import { TooltipProvider } from '@/components/ui/tooltip';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { ThemeProvider } from '@/components/theme-provider';
 
 // Page Imports
 import Index from './pages/Index';
@@ -14,6 +15,7 @@ import Projects from './pages/Projects';
 import ProjectDetail from './pages/ProjectDetail';
 import Community from './pages/Community';
 import TeamSearch from './pages/TeamSearch';
+import Search from './pages/Search';
 
 // Context Providers
 import { AuthProvider } from './lib/context/auth-context';
@@ -25,42 +27,47 @@ const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <AuthProvider>
-        <CompetitionsProvider>
-          <ProjectsProvider>
-            <CommunityProvider>
-              <BrowserRouter>
-                <Routes>
-                  {/* Public Routes */}
-                  <Route path="/" element={<Index />} />
-                  <Route path="/login" element={<Login />} />
-                  <Route path="/register" element={<Register />} />
-                  
-                  {/* Competition Routes */}
-                  <Route path="/competitions" element={<Competitions />} />
-                  <Route path="/competitions/:id" element={<CompetitionDetail />} />
-                  
-                  {/* Project Routes */}
-                  <Route path="/projects" element={<Projects />} />
-                  <Route path="/projects/:id" element={<ProjectDetail />} />
-                  
-                  {/* Community Routes */}
-                  <Route path="/community" element={<Community />} />
-                  
-                  {/* Team Search Routes */}
-                  <Route path="/team-search" element={<TeamSearch />} />
-                  
-                  {/* 404 Page */}
-                  <Route path="*" element={<NotFound />} />
-                </Routes>
-              </BrowserRouter>
-            </CommunityProvider>
-          </ProjectsProvider>
-        </CompetitionsProvider>
-      </AuthProvider>
-    </TooltipProvider>
+    <ThemeProvider defaultTheme="system" storageKey="studenthub-theme">
+      <TooltipProvider>
+        <Toaster />
+        <AuthProvider>
+          <CompetitionsProvider>
+            <ProjectsProvider>
+              <CommunityProvider>
+                <BrowserRouter>
+                  <Routes>
+                    {/* Public Routes */}
+                    <Route path="/" element={<Index />} />
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/register" element={<Register />} />
+                    
+                    {/* Competition Routes */}
+                    <Route path="/competitions" element={<Competitions />} />
+                    <Route path="/competitions/:id" element={<CompetitionDetail />} />
+                    
+                    {/* Project Routes */}
+                    <Route path="/projects" element={<Projects />} />
+                    <Route path="/projects/:id" element={<ProjectDetail />} />
+                    
+                    {/* Community Routes */}
+                    <Route path="/community" element={<Community />} />
+                    
+                    {/* Team Search Routes */}
+                    <Route path="/team-search" element={<TeamSearch />} />
+                    
+                    {/* Search Route */}
+                    <Route path="/search" element={<Search />} />
+                    
+                    {/* 404 Page */}
+                    <Route path="*" element={<NotFound />} />
+                  </Routes>
+                </BrowserRouter>
+              </CommunityProvider>
+            </ProjectsProvider>
+          </CompetitionsProvider>
+        </AuthProvider>
+      </TooltipProvider>
+    </ThemeProvider>
   </QueryClientProvider>
 );
 
