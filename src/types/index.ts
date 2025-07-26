@@ -44,6 +44,7 @@ export interface Competition {
 
 // Project types
 export type ProjectCategory = 'Web Development' | 'Mobile App' | 'AI/ML' | 'IoT' | 'Game Development' | 'Graphic Design' | 'Other';
+export type ProjectStatus = 'in-progress' | 'completed' | 'on-hold';
 
 export interface Project {
   id: string;
@@ -60,6 +61,11 @@ export interface Project {
   createdAt: Date;
   updatedAt: Date;
   ratings: Rating[];
+  status: ProjectStatus;
+  features?: string[];
+  challenges?: string;
+  futureImprovements?: string;
+  comments: ProjectComment[];
 }
 
 export interface Rating {
@@ -69,6 +75,15 @@ export interface Rating {
   projectId: string;
   rating: number;
   comment: string;
+  createdAt: Date;
+}
+
+export interface ProjectComment {
+  id: string;
+  userId: string;
+  userName: string;
+  userAvatar?: string;
+  content: string;
   createdAt: Date;
 }
 
