@@ -17,7 +17,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
       <FloatingNav navItems={defaultNavItems} />
 
       {/* Main Content */}
-      <main className="flex-1 relative z-10 pt-8">
+      <main className="flex-1 relative z-10 pt-24 md:pt-32">
         <PageTransition>
           {children}
         </PageTransition>
