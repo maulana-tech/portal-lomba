@@ -13,7 +13,13 @@ import {
   Search,
   Plus,
   Code,
-  Star
+  Star,
+  Users,
+  Calendar,
+  Eye,
+  ArrowRight,
+  Filter,
+  X
 } from 'lucide-react';
 import { Project, ProjectCategory } from '@/types';
 
@@ -114,20 +120,39 @@ const Projects = () => {
   return (
     <MainLayout>
       <div className="container px-4 py-8">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
-          <div>
-            <h1 className="text-3xl font-bold">Showcase Proyek</h1>
-            <p className="text-muted-foreground">
-              Jelajahi proyek-proyek kreatif dan inovatif dari mahasiswa
-            </p>
+        {/* Enhanced Header Section */}
+        <div className="relative mb-12">
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-pink-500/10 rounded-3xl" />
+          <div className="relative bg-white/50 dark:bg-gray-900/50 backdrop-blur-sm rounded-3xl p-8 border border-white/20 dark:border-gray-800/20">
+            <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+              <div className="space-y-2">
+                <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent">
+                  Showcase Proyek
+                </h1>
+                <p className="text-lg text-muted-foreground max-w-2xl">
+                  Jelajahi proyek-proyek kreatif dan inovatif dari mahasiswa. Temukan inspirasi dan kolaborasi dalam ekosistem teknologi yang berkembang.
+                </p>
+                <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                  <div className="flex items-center gap-1">
+                    <Bookmark className="h-4 w-4" />
+                    <span>{filteredProjects.length} proyek tersedia</span>
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <Users className="h-4 w-4" />
+                    <span>{projects.reduce((acc, p) => acc + p.members.length, 0)} anggota aktif</span>
+                  </div>
+                </div>
+              </div>
+              {isAuthenticated && (
+                <Link to="/projects/new">
+                  <Button size="lg" className="bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 shadow-lg">
+                    <Plus className="h-5 w-5 mr-2" /> 
+                    Tambah Proyek
+                  </Button>
+                </Link>
+              )}
+            </div>
           </div>
-          {isAuthenticated && (
-            <Link to="/projects/new">
-              <Button>
-                <Plus className="h-4 w-4 mr-2" /> Tambah Proyek
-              </Button>
-            </Link>
-          )}
         </div>
         
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
@@ -229,63 +254,159 @@ const Projects = () => {
             {filteredProjects.length > 0 ? (
               <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
                 {filteredProjects.map((project) => (
-                  <Card key={project.id} className="overflow-hidden h-full flex flex-col">
-                    <div className="h-48 bg-gray-100 flex items-center justify-center">
+                  <Card key={project.id} className="group overflow-hidden h-full flex flex-col bg-white/50 dark:bg-gray-900/50 backdrop-blur-sm border-white/20 dark:border-gray-800/20 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
+                    {/* Enhanced Image Section */}
+                    <div className="relative h-56 bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900 overflow-hidden">
                       {project.images && project.images.length > 0 ? (
                         <img 
                           src={project.images[0]} 
                           alt={project.title} 
-                          className="w-full h-full object-cover"
+                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                          onError={(e) => {
+                            console.log('Image failed to load:', project.images[0]);
+                            const target = e.target as HTMLImageElement;
+                            target.src = '';
+                            target.style.display = 'none';
+                            // Show fallback
+                            const parent = target.parentElement;
+                            if (parent) {
+                              parent.innerHTML = `
+                                <div class="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900 flex items-center justify-center">
+                                  <div class="text-center">
+                                    <svg class="h-16 w-16 text-gray-400 mx-auto mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 4V2a1 1 0 011-1h3m0 0h3a1 1 0 011 1v2m0 0v2a1 1 0 01-1 1h-3m0 0H8a1 1 0 01-1-1V4z" />
+                                    </svg>
+                                    <p class="text-gray-500 text-sm">Gambar tidak tersedia</p>
+                                  </div>
+                                </div>
+                              `;
+                            }
+                          }}
                         />
                       ) : (
-                        <Bookmark className="h-16 w-16 text-gray-400" />
+                        <div className="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900 flex items-center justify-center">
+                          <div className="text-center">
+                            <Bookmark className="h-16 w-16 text-gray-400 mx-auto mb-2" />
+                            <p className="text-gray-500 text-sm">Tidak ada gambar</p>
+                          </div>
+                        </div>
                       )}
-                    </div>
-                    <CardHeader className="pb-2">
-                      <div className="flex justify-between items-start gap-2">
-                        <CardTitle className="text-lg line-clamp-1">{project.title}</CardTitle>
-                        <Badge>{project.category}</Badge>
+                      
+                      {/* Floating badges */}
+                      <div className="absolute top-3 left-3 flex gap-2">
+                        <Badge className="bg-white/90 dark:bg-black/90 text-foreground border-0 shadow-lg backdrop-blur-sm">
+                          {project.category}
+                        </Badge>
+                        {project.status === 'completed' && (
+                          <Badge variant="secondary" className="bg-green-500/90 text-white border-0 shadow-lg backdrop-blur-sm">
+                            Selesai
+                          </Badge>
+                        )}
                       </div>
-                      <CardDescription>
-                        {project.ratings.length > 0 ? (
-                          <div className="flex items-center">
-                            {[...Array(5)].map((_, i) => {
-                              const avgRating = project.ratings.reduce((acc, r) => acc + r.rating, 0) / project.ratings.length;
-                              return (
-                                <span key={i} className="text-yellow-400">
-                                  {i < Math.floor(avgRating) ? "★" : "☆"}
-                                </span>
-                              );
-                            })}
-                            <span className="text-xs ml-2">
-                              ({project.ratings.length} {project.ratings.length > 1 ? 'penilaian' : 'penilaian'})
+                      
+                      {/* Rating overlay */}
+                      {project.ratings.length > 0 && (
+                        <div className="absolute top-3 right-3 bg-white/90 dark:bg-black/90 backdrop-blur-sm rounded-full px-2 py-1 shadow-lg">
+                          <div className="flex items-center gap-1">
+                            <Star className="h-3 w-3 text-yellow-400 fill-current" />
+                            <span className="text-xs font-semibold">
+                              {(project.ratings.reduce((acc, r) => acc + r.rating, 0) / project.ratings.length).toFixed(1)}
                             </span>
                           </div>
-                        ) : (
-                          <span className="text-xs">Belum ada penilaian</span>
-                        )}
-                      </CardDescription>
+                        </div>
+                      )}
+                      
+                      {/* Hover overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    </div>
+                    <CardHeader className="pb-4">
+                      <div className="space-y-3">
+                        <CardTitle className="text-xl font-bold line-clamp-2 group-hover:text-primary transition-colors">
+                          {project.title}
+                        </CardTitle>
+                        
+                        {/* Enhanced Rating Display */}
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center gap-2">
+                            {project.ratings.length > 0 ? (
+                              <>
+                                <div className="flex items-center gap-1">
+                                  {[...Array(5)].map((_, i) => {
+                                    const avgRating = project.ratings.reduce((acc, r) => acc + r.rating, 0) / project.ratings.length;
+                                    return (
+                                      <Star 
+                                        key={i} 
+                                        className={`h-4 w-4 ${i < Math.floor(avgRating) ? 'text-yellow-400 fill-current' : 'text-gray-300'}`}
+                                      />
+                                    );
+                                  })}
+                                </div>
+                                <span className="text-sm text-muted-foreground">
+                                  ({project.ratings.length} {project.ratings.length > 1 ? 'penilaian' : 'penilaian'})
+                                </span>
+                              </>
+                            ) : (
+                              <span className="text-sm text-muted-foreground flex items-center gap-1">
+                                <Star className="h-4 w-4 text-gray-300" />
+                                Belum ada penilaian
+                              </span>
+                            )}
+                          </div>
+                          
+                          {/* Project Status */}
+                          <div className="flex items-center gap-1 text-xs">
+                            <Calendar className="h-3 w-3 text-muted-foreground" />
+                            <span className="text-muted-foreground">
+                              {new Date(project.createdAt).toLocaleDateString('id-ID', { 
+                                month: 'short', 
+                                year: 'numeric' 
+                              })}
+                            </span>
+                          </div>
+                        </div>
+                      </div>
                     </CardHeader>
-                    <CardContent className="pb-2 flex-grow">
-                      <p className="text-sm text-muted-foreground line-clamp-2 mb-3">
+                    
+                    <CardContent className="pb-4 flex-grow space-y-4">
+                      <p className="text-sm text-muted-foreground line-clamp-3 leading-relaxed">
                         {project.description}
                       </p>
-                      <div className="mt-2 flex flex-wrap gap-1">
-                        {project.technologies.slice(0, 3).map((tech, i) => (
-                          <Badge key={i} variant="outline">{tech}</Badge>
-                        ))}
-                        {project.technologies.length > 3 && (
-                          <Badge variant="outline">+{project.technologies.length - 3}</Badge>
-                        )}
+                      
+                      {/* Enhanced Technologies */}
+                      <div className="space-y-2">
+                        <div className="flex items-center gap-2 text-xs font-medium text-muted-foreground">
+                          <Code className="h-3 w-3" />
+                          <span>Teknologi</span>
+                        </div>
+                        <div className="flex flex-wrap gap-1.5">
+                          {project.technologies.slice(0, 4).map((tech, i) => (
+                            <Badge 
+                              key={i} 
+                              variant="outline" 
+                              className="text-xs bg-white/50 dark:bg-gray-800/50 border-white/30 dark:border-gray-700/30 hover:bg-white dark:hover:bg-gray-800 transition-colors"
+                            >
+                              {tech}
+                            </Badge>
+                          ))}
+                          {project.technologies.length > 4 && (
+                            <Badge 
+                              variant="outline" 
+                              className="text-xs bg-white/50 dark:bg-gray-800/50 border-white/30 dark:border-gray-700/30"
+                            >
+                              +{project.technologies.length - 4}
+                            </Badge>
+                          )}
+                        </div>
                       </div>
                     </CardContent>
-                    <CardFooter className="flex justify-between items-center">
-                      <div className="flex items-center text-sm text-muted-foreground">
-                        <div className="flex -space-x-2 mr-2">
-                          {project.members.slice(0, 3).map((member, i) => (
+                    
+                    <CardFooter className="flex justify-between items-center pt-4 border-t border-white/20 dark:border-gray-800/20">
+                      <div className="flex items-center gap-3">
+                        <div className="flex -space-x-2">
+                          {project.members.slice(0, 4).map((member, i) => (
                             <div 
                               key={i} 
-                              className="h-6 w-6 rounded-full bg-gray-200 flex items-center justify-center text-xs border border-background"
+                              className="h-8 w-8 rounded-full bg-gradient-to-br from-primary/20 to-primary/40 flex items-center justify-center text-xs font-semibold border-2 border-white dark:border-gray-800 shadow-sm"
                               title={member.name}
                             >
                               {member.avatar ? (
@@ -295,49 +416,85 @@ const Projects = () => {
                                   className="h-full w-full rounded-full object-cover"
                                 />
                               ) : (
-                                member.name.charAt(0)
+                                member.name.charAt(0).toUpperCase()
                               )}
                             </div>
                           ))}
-                          {project.members.length > 3 && (
-                            <div className="h-6 w-6 rounded-full bg-gray-200 flex items-center justify-center text-xs border border-background">
-                              +{project.members.length - 3}
+                          {project.members.length > 4 && (
+                            <div className="h-8 w-8 rounded-full bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-600 flex items-center justify-center text-xs font-semibold border-2 border-white dark:border-gray-800 shadow-sm">
+                              +{project.members.length - 4}
                             </div>
                           )}
                         </div>
-                        <span>{project.members.length} anggota</span>
+                        <div className="flex items-center gap-1 text-sm text-muted-foreground">
+                          <Users className="h-4 w-4" />
+                          <span>{project.members.length} anggota</span>
+                        </div>
                       </div>
+                      
                       <Link to={`/projects/${project.id}`}>
-                        <Button variant="ghost" size="sm">Lihat</Button>
+                        <Button 
+                          size="sm" 
+                          className="bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 shadow-lg group-hover:shadow-xl transition-all duration-200"
+                        >
+                          <Eye className="h-4 w-4 mr-1" />
+                          Lihat
+                          <ArrowRight className="h-3 w-3 ml-1 group-hover:translate-x-0.5 transition-transform" />
+                        </Button>
                       </Link>
                     </CardFooter>
                   </Card>
                 ))}
               </div>
             ) : (
-              <div className="py-12 text-center">
-                <Bookmark className="h-16 w-16 mx-auto mb-4 text-muted-foreground" />
-                <h3 className="text-lg font-medium mb-2">Tidak Ada Proyek Ditemukan</h3>
-                <p className="text-muted-foreground">
-                  Tidak ada proyek yang sesuai dengan filter yang dipilih.
-                </p>
-                <Button variant="outline" className="mt-4" onClick={handleResetFilters}>
-                  Reset Filter
-                </Button>
+              <div className="py-16 text-center">
+                <div className="relative">
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-pink-500/10 rounded-3xl" />
+                  <div className="relative bg-white/50 dark:bg-gray-900/50 backdrop-blur-sm rounded-3xl p-12 border border-white/20 dark:border-gray-800/20">
+                    <Bookmark className="h-20 w-20 mx-auto mb-6 text-muted-foreground" />
+                    <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
+                      Tidak Ada Proyek Ditemukan
+                    </h3>
+                    <p className="text-muted-foreground text-lg mb-8 max-w-md mx-auto">
+                      Tidak ada proyek yang sesuai dengan filter yang dipilih. Coba ubah filter atau reset untuk melihat semua proyek.
+                    </p>
+                    <Button 
+                      variant="outline" 
+                      size="lg"
+                      className="bg-white/50 dark:bg-gray-800/50 border-white/30 dark:border-gray-700/30 hover:bg-white dark:hover:bg-gray-800 transition-all duration-200"
+                      onClick={handleResetFilters}
+                    >
+                      <X className="h-4 w-4 mr-2" />
+                      Reset Filter
+                    </Button>
+                  </div>
+                </div>
               </div>
             )}
             
             {isAuthenticated && (
-              <div className="py-8 text-center border-t mt-12">
-                <h3 className="text-xl font-semibold mb-4">Punya Proyek Untuk Ditampilkan?</h3>
-                <p className="text-muted-foreground max-w-md mx-auto mb-6">
-                  Tampilkan proyek Anda dan dapatkan pengakuan dari komunitas mahasiswa dan dosen.
-                </p>
-                <Link to="/projects/new">
-                  <Button>
-                    <Plus className="h-4 w-4 mr-2" /> Tambahkan Proyek Anda
-                  </Button>
-                </Link>
+              <div className="py-12 text-center">
+                <div className="relative">
+                  <div className="absolute inset-0 bg-gradient-to-r from-green-500/10 via-blue-500/10 to-purple-500/10 rounded-3xl" />
+                  <div className="relative bg-white/50 dark:bg-gray-900/50 backdrop-blur-sm rounded-3xl p-12 border border-white/20 dark:border-gray-800/20">
+                    <h3 className="text-3xl font-bold mb-6 bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
+                      Punya Proyek Untuk Ditampilkan?
+                    </h3>
+                    <p className="text-muted-foreground text-lg max-w-2xl mx-auto mb-8 leading-relaxed">
+                      Tampilkan proyek Anda dan dapatkan pengakuan dari komunitas mahasiswa dan dosen. 
+                      Bagikan kreativitas dan inovasi Anda dengan dunia!
+                    </p>
+                    <Link to="/projects/new">
+                      <Button 
+                        size="lg" 
+                        className="bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 shadow-lg hover:shadow-xl transition-all duration-200"
+                      >
+                        <Plus className="h-5 w-5 mr-2" /> 
+                        Tambahkan Proyek Anda
+                      </Button>
+                    </Link>
+                  </div>
+                </div>
               </div>
             )}
           </div>
