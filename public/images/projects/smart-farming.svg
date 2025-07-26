@@ -1,0 +1,124 @@
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10b981;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#059669;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="card" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.9" />
+      <stop offset="100%" style="stop-color:#f0fdf4;stop-opacity:0.9" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="600" fill="url(#bg)"/>
+  
+  <!-- Farm Field Background -->
+  <rect x="0" y="400" width="800" height="200" fill="#22c55e"/>
+  <circle cx="100" cy="450" r="30" fill="#fbbf24"/>
+  <circle cx="700" cy="480" r="25" fill="#fbbf24"/>
+  
+  <!-- Header -->
+  <rect x="40" y="40" width="720" height="80" rx="12" fill="url(#card)" stroke="#d1fae5" stroke-width="2"/>
+  <text x="60" y="75" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#065f46">Smart Farming Dashboard</text>
+  <text x="60" y="100" font-family="Arial, sans-serif" font-size="14" fill="#047857">Real-time monitoring system</text>
+  
+  <!-- Sensor Network -->
+  <rect x="40" y="140" width="360" height="240" rx="12" fill="url(#card)" stroke="#d1fae5" stroke-width="2"/>
+  <text x="60" y="170" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#065f46">Sensor Network</text>
+  
+  <!-- Sensors -->
+  <circle cx="120" cy="220" r="25" fill="#10b981" stroke="#059669" stroke-width="3"/>
+  <text x="120" y="225" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">T</text>
+  <text x="120" y="260" font-family="Arial, sans-serif" font-size="10" fill="#047857" text-anchor="middle">Temperature</text>
+  
+  <circle cx="200" cy="220" r="25" fill="#3b82f6" stroke="#1d4ed8" stroke-width="3"/>
+  <text x="200" y="225" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">H</text>
+  <text x="200" y="260" font-family="Arial, sans-serif" font-size="10" fill="#047857" text-anchor="middle">Humidity</text>
+  
+  <circle cx="280" cy="220" r="25" fill="#f59e0b" stroke="#d97706" stroke-width="3"/>
+  <text x="280" y="225" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">S</text>
+  <text x="280" y="260" font-family="Arial, sans-serif" font-size="10" fill="#047857" text-anchor="middle">Soil</text>
+  
+  <circle cx="120" cy="300" r="25" fill="#8b5cf6" stroke="#7c3aed" stroke-width="3"/>
+  <text x="120" y="305" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">L</text>
+  <text x="120" y="340" font-family="Arial, sans-serif" font-size="10" fill="#047857" text-anchor="middle">Light</text>
+  
+  <circle cx="200" cy="300" r="25" fill="#ef4444" stroke="#dc2626" stroke-width="3"/>
+  <text x="200" y="305" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">P</text>
+  <text x="200" y="340" font-family="Arial, sans-serif" font-size="10" fill="#047857" text-anchor="middle">pH</text>
+  
+  <circle cx="280" cy="300" r="25" fill="#06b6d4" stroke="#0891b2" stroke-width="3"/>
+  <text x="280" y="305" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">W</text>
+  <text x="280" y="340" font-family="Arial, sans-serif" font-size="10" fill="#047857" text-anchor="middle">Water</text>
+  
+  <!-- Connection Lines -->
+  <line x1="145" y1="220" x2="175" y2="220" stroke="#059669" stroke-width="2"/>
+  <line x1="225" y1="220" x2="255" y2="220" stroke="#059669" stroke-width="2"/>
+  <line x1="120" y1="245" x2="120" y2="275" stroke="#059669" stroke-width="2"/>
+  <line x1="200" y1="245" x2="200" y2="275" stroke="#059669" stroke-width="2"/>
+  <line x1="280" y1="245" x2="280" y2="275" stroke="#059669" stroke-width="2"/>
+  
+  <!-- Real-time Data -->
+  <rect x="420" y="140" width="340" height="240" rx="12" fill="url(#card)" stroke="#d1fae5" stroke-width="2"/>
+  <text x="440" y="170" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#065f46">Real-time Data</text>
+  
+  <!-- Data Cards -->
+  <rect x="440" y="190" width="150" height="60" rx="8" fill="#f0fdf4" stroke="#d1fae5" stroke-width="1"/>
+  <text x="450" y="210" font-family="Arial, sans-serif" font-size="12" fill="#047857">Temperature</text>
+  <text x="450" y="230" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#10b981">24°C</text>
+  <text x="450" y="245" font-family="Arial, sans-serif" font-size="10" fill="#059669">Optimal</text>
+  
+  <rect x="600" y="190" width="150" height="60" rx="8" fill="#f0fdf4" stroke="#d1fae5" stroke-width="1"/>
+  <text x="610" y="210" font-family="Arial, sans-serif" font-size="12" fill="#047857">Humidity</text>
+  <text x="610" y="230" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#3b82f6">65%</text>
+  <text x="610" y="245" font-family="Arial, sans-serif" font-size="10" fill="#059669">Good</text>
+  
+  <rect x="440" y="270" width="150" height="60" rx="8" fill="#f0fdf4" stroke="#d1fae5" stroke-width="1"/>
+  <text x="450" y="290" font-family="Arial, sans-serif" font-size="12" fill="#047857">Soil Moisture</text>
+  <text x="450" y="310" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#f59e0b">78%</text>
+  <text x="450" y="325" font-family="Arial, sans-serif" font-size="10" fill="#059669">Wet</text>
+  
+  <rect x="600" y="270" width="150" height="60" rx="8" fill="#f0fdf4" stroke="#d1fae5" stroke-width="1"/>
+  <text x="610" y="290" font-family="Arial, sans-serif" font-size="12" fill="#047857">pH Level</text>
+  <text x="610" y="310" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#ef4444">6.8</text>
+  <text x="610" y="325" font-family="Arial, sans-serif" font-size="10" fill="#059669">Neutral</text>
+  
+  <!-- Weather Forecast -->
+  <rect x="40" y="400" width="360" height="160" rx="12" fill="url(#card)" stroke="#d1fae5" stroke-width="2"/>
+  <text x="60" y="430" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#065f46">Weather Forecast</text>
+  
+  <!-- Weather Icons -->
+  <circle cx="100" cy="470" r="20" fill="#fbbf24"/>
+  <text x="100" y="475" font-family="Arial, sans-serif" font-size="12" fill="#92400e" text-anchor="middle">☀</text>
+  <text x="100" y="500" font-family="Arial, sans-serif" font-size="10" fill="#047857" text-anchor="middle">Today</text>
+  <text x="100" y="515" font-family="Arial, sans-serif" font-size="10" fill="#047857" text-anchor="middle">28°C</text>
+  
+  <circle cx="160" cy="470" r="20" fill="#93c5fd"/>
+  <text x="160" y="475" font-family="Arial, sans-serif" font-size="12" fill="#1e40af" text-anchor="middle">☁</text>
+  <text x="160" y="500" font-family="Arial, sans-serif" font-size="10" fill="#047857" text-anchor="middle">Tomorrow</text>
+  <text x="160" y="515" font-family="Arial, sans-serif" font-size="10" fill="#047857" text-anchor="middle">25°C</text>
+  
+  <circle cx="220" cy="470" r="20" fill="#fbbf24"/>
+  <text x="220" y="475" font-family="Arial, sans-serif" font-size="12" fill="#92400e" text-anchor="middle">☀</text>
+  <text x="220" y="500" font-family="Arial, sans-serif" font-size="10" fill="#047857" text-anchor="middle">Day 3</text>
+  <text x="220" y="515" font-family="Arial, sans-serif" font-size="10" fill="#047857" text-anchor="middle">30°C</text>
+  
+  <circle cx="280" cy="470" r="20" fill="#93c5fd"/>
+  <text x="280" y="475" font-family="Arial, sans-serif" font-size="12" fill="#1e40af" text-anchor="middle">🌧</text>
+  <text x="280" y="500" font-family="Arial, sans-serif" font-size="10" fill="#047857" text-anchor="middle">Day 4</text>
+  <text x="280" y="515" font-family="Arial, sans-serif" font-size="10" fill="#047857" text-anchor="middle">22°C</text>
+  
+  <!-- Alerts -->
+  <rect x="420" y="400" width="340" height="160" rx="12" fill="url(#card)" stroke="#d1fae5" stroke-width="2"/>
+  <text x="440" y="430" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#065f46">System Alerts</text>
+  
+  <rect x="440" y="450" width="300" height="30" rx="6" fill="#fef3c7" stroke="#fbbf24" stroke-width="1"/>
+  <text x="450" y="470" font-family="Arial, sans-serif" font-size="12" fill="#92400e">⚠️ Irrigation system scheduled for 6:00 AM</text>
+  
+  <rect x="440" y="490" width="300" height="30" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+  <text x="450" y="510" font-family="Arial, sans-serif" font-size="12" fill="#1e40af">ℹ️ Soil moisture levels optimal</text>
+  
+  <rect x="440" y="530" width="300" height="30" rx="6" fill="#fef3c7" stroke="#fbbf24" stroke-width="1"/>
+  <text x="450" y="550" font-family="Arial, sans-serif" font-size="12" fill="#92400e">⚠️ Fertilizer application due in 2 days</text>
+</svg> 

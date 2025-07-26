@@ -1,0 +1,156 @@
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f59e0b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#d97706;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="card" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.9" />
+      <stop offset="100%" style="stop-color:#fffbeb;stop-opacity:0.9" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="600" fill="url(#bg)"/>
+  
+  <!-- Game Environment Background -->
+  <rect x="0" y="400" width="800" height="200" fill="#22c55e"/>
+  <polygon points="100,400 150,350 200,400" fill="#16a34a"/>
+  <polygon points="300,400 350,320 400,400" fill="#16a34a"/>
+  <polygon points="500,400 550,340 600,400" fill="#16a34a"/>
+  <polygon points="700,400 750,360 800,400" fill="#16a34a"/>
+  
+  <!-- Header -->
+  <rect x="40" y="40" width="720" height="80" rx="12" fill="url(#card)" stroke="#fed7aa" stroke-width="2"/>
+  <text x="60" y="75" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#92400e">Adventure Quest Game</text>
+  <text x="60" y="100" font-family="Arial, sans-serif" font-size="14" fill="#d97706">Epic RPG adventure game</text>
+  
+  <!-- Game Screen -->
+  <rect x="40" y="140" width="360" height="240" rx="12" fill="url(#card)" stroke="#fed7aa" stroke-width="2"/>
+  <text x="60" y="170" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#92400e">Game Interface</text>
+  
+  <!-- Game Viewport -->
+  <rect x="60" y="190" width="320" height="160" rx="8" fill="#1e293b" stroke="#475569" stroke-width="2"/>
+  
+  <!-- Game Character -->
+  <circle cx="200" cy="270" r="15" fill="#fbbf24"/>
+  <rect x="195" y="285" width="10" height="20" fill="#fbbf24"/>
+  <rect x="185" y="305" width="5" height="15" fill="#fbbf24"/>
+  <rect x="210" y="305" width="5" height="15" fill="#fbbf24"/>
+  
+  <!-- Game Elements -->
+  <rect x="120" y="320" width="20" height="20" fill="#ef4444" rx="4"/>
+  <rect x="280" y="300" width="15" height="15" fill="#3b82f6" rx="3"/>
+  <rect x="320" y="280" width="25" height="25" fill="#10b981" rx="5"/>
+  <rect x="80" y="290" width="30" height="30" fill="#8b5cf6" rx="6"/>
+  
+  <!-- UI Elements -->
+  <rect x="60" y="360" width="80" height="20" rx="10" fill="#f59e0b" opacity="0.8"/>
+  <text x="100" y="375" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle">HP: 85/100</text>
+  
+  <rect x="150" y="360" width="80" height="20" rx="10" fill="#3b82f6" opacity="0.8"/>
+  <text x="190" y="375" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle">MP: 60/80</text>
+  
+  <rect x="240" y="360" width="80" height="20" rx="10" fill="#10b981" opacity="0.8"/>
+  <text x="280" y="375" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle">XP: 1250</text>
+  
+  <rect x="330" y="360" width="50" height="20" rx="10" fill="#ef4444" opacity="0.8"/>
+  <text x="355" y="375" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle">Lv.5</text>
+  
+  <!-- Game Controls -->
+  <rect x="420" y="140" width="340" height="240" rx="12" fill="url(#card)" stroke="#fed7aa" stroke-width="2"/>
+  <text x="440" y="170" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#92400e">Game Controls</text>
+  
+  <!-- Control Buttons -->
+  <circle cx="480" cy="220" r="25" fill="#f59e0b" stroke="#d97706" stroke-width="2"/>
+  <text x="480" y="225" font-family="Arial, sans-serif" font-size="16" fill="white" text-anchor="middle">↑</text>
+  <text x="480" y="260" font-family="Arial, sans-serif" font-size="10" fill="#92400e" text-anchor="middle">Move Up</text>
+  
+  <circle cx="480" cy="280" r="25" fill="#f59e0b" stroke="#d97706" stroke-width="2"/>
+  <text x="480" y="285" font-family="Arial, sans-serif" font-size="16" fill="white" text-anchor="middle">↓</text>
+  <text x="480" y="320" font-family="Arial, sans-serif" font-size="10" fill="#92400e" text-anchor="middle">Move Down</text>
+  
+  <circle cx="450" cy="250" r="25" fill="#f59e0b" stroke="#d97706" stroke-width="2"/>
+  <text x="450" y="255" font-family="Arial, sans-serif" font-size="16" fill="white" text-anchor="middle">←</text>
+  <text x="450" y="290" font-family="Arial, sans-serif" font-size="10" fill="#92400e" text-anchor="middle">Move Left</text>
+  
+  <circle cx="510" cy="250" r="25" fill="#f59e0b" stroke="#d97706" stroke-width="2"/>
+  <text x="510" y="255" font-family="Arial, sans-serif" font-size="16" fill="white" text-anchor="middle">→</text>
+  <text x="510" y="290" font-family="Arial, sans-serif" font-size="10" fill="#92400e" text-anchor="middle">Move Right</text>
+  
+  <!-- Action Buttons -->
+  <rect x="580" y="200" width="60" height="30" rx="15" fill="#ef4444" stroke="#dc2626" stroke-width="2"/>
+  <text x="610" y="220" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">Attack</text>
+  
+  <rect x="580" y="240" width="60" height="30" rx="15" fill="#3b82f6" stroke="#1d4ed8" stroke-width="2"/>
+  <text x="610" y="260" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">Magic</text>
+  
+  <rect x="580" y="280" width="60" height="30" rx="15" fill="#10b981" stroke="#059669" stroke-width="2"/>
+  <text x="610" y="300" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">Heal</text>
+  
+  <rect x="580" y="320" width="60" height="30" rx="15" fill="#8b5cf6" stroke="#7c3aed" stroke-width="2"/>
+  <text x="610" y="340" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">Item</text>
+  
+  <!-- Game Stats -->
+  <rect x="40" y="400" width="360" height="160" rx="12" fill="url(#card)" stroke="#fed7aa" stroke-width="2"/>
+  <text x="60" y="430" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#92400e">Player Statistics</text>
+  
+  <!-- Stats Grid -->
+  <rect x="60" y="450" width="80" height="60" rx="8" fill="#fffbeb" stroke="#fed7aa" stroke-width="1"/>
+  <text x="100" y="470" font-family="Arial, sans-serif" font-size="12" fill="#92400e" text-anchor="middle">Strength</text>
+  <text x="100" y="490" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#f59e0b" text-anchor="middle">15</text>
+  
+  <rect x="150" y="450" width="80" height="60" rx="8" fill="#fffbeb" stroke="#fed7aa" stroke-width="1"/>
+  <text x="190" y="470" font-family="Arial, sans-serif" font-size="12" fill="#92400e" text-anchor="middle">Dexterity</text>
+  <text x="190" y="490" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#f59e0b" text-anchor="middle">12</text>
+  
+  <rect x="240" y="450" width="80" height="60" rx="8" fill="#fffbeb" stroke="#fed7aa" stroke-width="1"/>
+  <text x="280" y="470" font-family="Arial, sans-serif" font-size="12" fill="#92400e" text-anchor="middle">Intelligence</text>
+  <text x="280" y="490" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#f59e0b" text-anchor="middle">18</text>
+  
+  <rect x="330" y="450" width="60" height="60" rx="8" fill="#fffbeb" stroke="#fed7aa" stroke-width="1"/>
+  <text x="360" y="470" font-family="Arial, sans-serif" font-size="12" fill="#92400e" text-anchor="middle">Luck</text>
+  <text x="360" y="490" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#f59e0b" text-anchor="middle">8</text>
+  
+  <!-- Inventory -->
+  <rect x="60" y="530" width="330" height="20" rx="10" fill="#fffbeb" stroke="#fed7aa" stroke-width="1"/>
+  <text x="70" y="545" font-family="Arial, sans-serif" font-size="12" fill="#92400e">Inventory: Sword, Shield, Potion x3, Magic Scroll</text>
+  
+  <!-- Game Features -->
+  <rect x="420" y="400" width="340" height="160" rx="12" fill="url(#card)" stroke="#fed7aa" stroke-width="2"/>
+  <text x="440" y="430" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#92400e">Game Features</text>
+  
+  <!-- Feature Icons -->
+  <circle cx="470" cy="470" r="20" fill="#f59e0b"/>
+  <text x="470" y="475" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">⚔</text>
+  <text x="470" y="500" font-family="Arial, sans-serif" font-size="10" fill="#92400e" text-anchor="middle">Combat</text>
+  
+  <circle cx="520" cy="470" r="20" fill="#3b82f6"/>
+  <text x="520" y="475" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">🔮</text>
+  <text x="520" y="500" font-family="Arial, sans-serif" font-size="10" fill="#92400e" text-anchor="middle">Magic</text>
+  
+  <circle cx="570" cy="470" r="20" fill="#10b981"/>
+  <text x="570" y="475" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">🏰</text>
+  <text x="570" y="500" font-family="Arial, sans-serif" font-size="10" fill="#92400e" text-anchor="middle">Quests</text>
+  
+  <circle cx="620" cy="470" r="20" fill="#8b5cf6"/>
+  <text x="620" y="475" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">👥</text>
+  <text x="620" y="500" font-family="Arial, sans-serif" font-size="10" fill="#92400e" text-anchor="middle">Multiplayer</text>
+  
+  <circle cx="670" cy="470" r="20" fill="#ef4444"/>
+  <text x="670" y="475" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">🎯</text>
+  <text x="670" y="500" font-family="Arial, sans-serif" font-size="10" fill="#92400e" text-anchor="middle">Achievements</text>
+  
+  <circle cx="720" cy="470" r="20" fill="#f59e0b"/>
+  <text x="720" y="475" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">🏆</text>
+  <text x="720" y="500" font-family="Arial, sans-serif" font-size="10" fill="#92400e" text-anchor="middle">Leaderboard</text>
+  
+  <!-- Feature Details -->
+  <rect x="440" y="520" width="300" height="30" rx="6" fill="#fffbeb" stroke="#fed7aa" stroke-width="1"/>
+  <text x="450" y="540" font-family="Arial, sans-serif" font-size="12" fill="#92400e">Open world exploration with dynamic weather system</text>
+  
+  <!-- Progress Bar -->
+  <rect x="440" y="560" width="300" height="20" rx="10" fill="#fef3c7" stroke="#fbbf24" stroke-width="1"/>
+  <rect x="440" y="560" width="240" height="20" rx="10" fill="#f59e0b"/>
+  <text x="590" y="575" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle">80% Complete</text>
+</svg> 
