@@ -1,4 +1,4 @@
-# Shadcn-UI Template Usage Instructions
+# Portal-lomba Template Usage Instructions
 
 ## technology stack
 
